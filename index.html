@@ -3,13 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Bright Future School</title>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
+}
+
+body{
 background:#f4f6f9;
 }
 
@@ -18,28 +24,40 @@ background:#0f172a;
 color:white;
 display:flex;
 justify-content:space-between;
-padding:15px 40px;
 align-items:center;
+padding:15px 40px;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+nav{
+display:flex;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
-font-weight:bold;
+}
+
+.menu-btn{
+display:none;
+font-size:24px;
+cursor:pointer;
 }
 
 .hero{
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
-background-size:cover;
-background-position:center;
-height:80vh;
+height:500px;
+background:url("https://images.unsplash.com/photo-1588072432836-e10032774350") center/cover;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
 color:white;
+text-align:center;
 }
 
 .hero h1{
@@ -52,15 +70,28 @@ background:#2563eb;
 border:none;
 color:white;
 font-size:18px;
+margin-top:20px;
 cursor:pointer;
 }
 
 section{
 padding:60px 10%;
+background:white;
+margin-top:10px;
 }
 
-.about{
-background:white;
+.highlights{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.highlight-box{
+background:#2563eb;
+color:white;
+padding:30px;
+border-radius:8px;
 }
 
 .programs{
@@ -70,16 +101,36 @@ gap:20px;
 }
 
 .card{
-background:white;
+background:#f1f5f9;
 padding:20px;
 border-radius:8px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.teachers{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.teachers img{
+width:100%;
+border-radius:10px;
+}
+
+.notice{
+background:#e2e8f0;
+padding:20px;
+}
+
+.notice ul{
+line-height:30px;
 }
 
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
+gap:10px;
 }
 
 .gallery img{
@@ -87,18 +138,10 @@ width:100%;
 border-radius:6px;
 }
 
-.notice{
-background:#e0f2fe;
-padding:20px;
-border-radius:6px;
-}
-
 form input,form textarea{
 width:100%;
 padding:12px;
 margin-top:10px;
-border:1px solid #ccc;
-border-radius:5px;
 }
 
 form button{
@@ -107,99 +150,263 @@ padding:12px;
 background:#2563eb;
 color:white;
 border:none;
-cursor:pointer;
 }
 
-.contact{
-background:#0f172a;
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
 color:white;
+padding:12px 20px;
+border-radius:30px;
+text-decoration:none;
 }
 
 footer{
-text-align:center;
-padding:20px;
 background:#020617;
 color:white;
+text-align:center;
+padding:20px;
+}
+
+@media(max-width:768px){
+
+nav{
+display:none;
+flex-direction:column;
+background:#0f172a;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+}
+
+nav a{
+padding:10px;
+}
+
+.menu-btn{
+display:block;
+}
+
 }
 
 </style>
+
+<script>
+
+function toggleMenu(){
+
+var nav=document.getElementById("nav");
+
+if(nav.style.display==="flex"){
+nav.style.display="none";
+}else{
+nav.style.display="flex";
+}
+
+}
+
+</script>
+
 </head>
 
 <body>
 
 <header>
-<h2>Bright Future School</h2>
 
-<nav>
+<div class="logo">Bright Future School</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
+
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#programs">Programs</a>
+<a href="#teachers">Teachers</a>
+<a href="#gallery">Gallery</a>
 <a href="#admission">Admission</a>
 <a href="#contact">Contact</a>
+
 </nav>
 
 </header>
 
 <div class="hero">
+
 <h1>Shaping Tomorrow's Leaders</h1>
-<p>Empowering young minds through quality education.</p>
+
+<p>Admissions Open for Session 2026</p>
+
 <button>Apply for Admission</button>
+
 </div>
 
-<section id="about" class="about">
+<section>
+
+<h2>School Highlights</h2>
+
+<div class="highlights">
+
+<div class="highlight-box">
+
+<h3>25+</h3>
+
+<p>Experienced Teachers</p>
+
+</div>
+
+<div class="highlight-box">
+
+<h3>1000+</h3>
+
+<p>Students</p>
+
+</div>
+
+<div class="highlight-box">
+
+<h3>Smart</h3>
+
+<p>Digital Classrooms</p>
+
+</div>
+
+<div class="highlight-box">
+
+<h3>Sports</h3>
+
+<p>Facilities</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
 <h2>About Our School</h2>
 
-<p>Bright Future School provides modern education with experienced teachers, innovative programs, and a strong academic environment.</p>
+<p>
+
+Bright Future School provides modern education with experienced teachers, digital classrooms, sports facilities, and activity based learning.
+
+Our mission is to develop students academically and personally so they become successful leaders in the future.
+
+</p>
 
 </section>
 
 <section id="programs">
-<h2>Our Programs</h2>
+
+<h2>Programs</h2>
 
 <div class="programs">
 
 <div class="card">
+
 <h3>Primary School</h3>
-<p>Strong foundation for early learners.</p>
+
+<p>Activity based learning for early students.</p>
+
 </div>
 
 <div class="card">
+
 <h3>Middle School</h3>
-<p>Academic growth with practical learning.</p>
+
+<p>Strong academic foundation.</p>
+
 </div>
 
 <div class="card">
+
 <h3>High School</h3>
-<p>Preparing students for future success.</p>
+
+<p>Preparation for competitive exams.</p>
+
 </div>
 
 </div>
 
 </section>
 
-<section>
+<section id="teachers">
+
+<h2>Our Teachers</h2>
+
+<div class="teachers">
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2">
+
+<h3>Sarah Johnson</h3>
+
+<p>Science Teacher</p>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a">
+
+<h3>Michael Lee</h3>
+
+<p>Mathematics Teacher</p>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1544725176-7c40e5a2c9f9">
+
+<h3>Emily Brown</h3>
+
+<p>English Teacher</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="notice">
 
 <h2>Latest Notices</h2>
 
-<div class="notice">
 <ul>
 
-<li>Admissions open for session 2026</li>
-<li>Annual sports day on March 25</li>
-<li>Summer vacation starts June 1</li>
+<li>Admission Open for Session 2026</li>
+
+<li>Annual Sports Day on March 25</li>
+
+<li>Scholarship Test on April 10</li>
+
+<li>Science Exhibition on April 15</li>
+
+<li>Summer Vacation begins June 1</li>
 
 </ul>
-</div>
 
 </section>
 
-<section class="gallery">
+<section id="gallery">
 
 <h2>School Gallery</h2>
 
-<img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
-<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+<div class="gallery">
+
 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+
+</div>
 
 </section>
 
@@ -209,7 +416,7 @@ color:white;
 
 <form>
 
-<input type="text" placeholder="Student Name" required>
+<input type="text" placeholder="Student Name">
 
 <input type="text" placeholder="Parent Name">
 
@@ -225,7 +432,7 @@ color:white;
 
 </section>
 
-<section id="contact" class="contact">
+<section id="contact">
 
 <h2>Contact Us</h2>
 
@@ -237,9 +444,11 @@ color:white;
 
 </section>
 
+<a class="whatsapp" href="#">Chat on WhatsApp</a>
+
 <footer>
 
-<p>© 2026 Bright Future School</p>
+© 2026 Bright Future School
 
 </footer>
 
